@@ -1,15 +1,30 @@
+// 1.Find the middle element.
+// 2.Target>mid --> search in right......else search in left.
+// 3.If middle element is == target element loop ends.
+// 4.Valid only when array is sorted.
+
 public class BinarySearch {
-    public static void main(String[] args){
-        int a[]={1,2,3,4,5,6,7,8,9};
-        int key=5;
-        int l=0;
-        int h=a.length-1;
-        while(l<=h){
-            int m=(l+h)/2;
-            if(a[m]==key){
-                System.out.println("Element founded!!");
-                break;
+    public static void main(String[] args) {
+        int[] arr = {-18,-12,-4,0,2,3,4,15,16,18,22,45,89};
+        int target = 22;
+        int ans = binarysearch(arr, target);
+        System.out.println(ans);
+    }
+    static int binarysearch(int[] arr,int target){
+        int start = 0;
+        int end = arr.length - 1;
+        while(start<=end){
+            int mid = start + (end-start) / 2;
+            if(target < arr[mid]){
+                end = mid -1;
+            }
+            else if(target > arr[mid]){
+                start = mid+1;
+            }
+            else{
+                return mid;
             }
         }
+        return -1;
     }
 }
