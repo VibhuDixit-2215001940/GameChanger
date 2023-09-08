@@ -1,14 +1,18 @@
 import java.util.Scanner;
 
 public class SumOfDigit {
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        int a=sc.nextInt();
-        int sum=0;
-        while(a>0){
-            sum=sum+a%10;
-            a=a/10;
+    static int sum(int m){
+        int flag=0;
+        while(m>0){
+            m=m%10;
+            flag=flag+m;
         }
-        System.out.println("The sum of no. o a given digit is: "+sum);
+        return flag;
+    }
+    public static void main(String[] args) {
+        System.out.println("Enter a digit: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("The sum of no. of digit is: "+sum(n));
     }
 }
